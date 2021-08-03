@@ -1,0 +1,95 @@
+.login {
+  padding: 3%;
+  background: -webkit-linear-gradient(left, #3931af, #00c6ff);
+  @-webkit-keyframes mover {
+    0% {
+      transform: translateY(0);
+    }
+
+    100% {
+      transform: translateY(-20px);
+    }
+  }
+
+  @keyframes mover {
+    0% {
+      transform: translateY(0);
+    }
+
+    100% {
+      transform: translateY(-20px);
+    }
+  }
+  .register-form {
+    padding: 10%;
+    margin-top: 10%;
+  }
+  &__left {
+    text-align: center;
+    color: #fff;
+    margin-top: 4%;
+    padding: 5%;
+    background: white;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 25px;
+    text-align: center;
+    h3 {
+      text-align: center;
+      color: #333;
+    }
+    input {
+      border: none;
+      border-radius: 1.5rem;
+      padding: 2px;
+      width: 100%;
+      text-align: center;
+      height: 50px;
+      background: #f8f9fa;
+      margin-top: 20%;
+      margin-bottom: 3%;
+      cursor: pointer;
+    }
+    .btnSubmit {
+      font-weight: 600;
+      color: #fff;
+      background-color: green;
+      -webkit-animation: mover 2s infinite alternate;
+      animation: mover 1s infinite alternate;
+    }
+  }
+  &__right {
+    text-align: center;
+    color: #fff;
+    margin-top: 2%;
+    padding: 5%;
+    max-height: 500px;
+    min-height: 500px;
+    background: white;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 25px;
+    text-align: center;
+    h3 {
+      text-align: center;
+      color: #333;
+    }
+    input {
+      border: none;
+      border-radius: 1.5rem;
+      padding: 2px;
+      width: 100%;
+      text-align: center;
+      height: 50px;
+      background: #f8f9fa;
+      margin-top: 10%;
+      cursor: pointer;
+    }
+    .btnSubmit {
+      font-weight: 600;
+      color: #fff;
+      max-width: 300px;
+      background-color: blue;
+      -webkit-animation: mover 2s infinite alternate;
+      animation: mover 1s infinite alternate;
+    }
+  }
+}

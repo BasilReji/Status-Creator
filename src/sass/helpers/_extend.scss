@@ -1,0 +1,156 @@
+@import './mixins';
+%flex-column {
+	@include flexbox();
+	@include flex-direction(column);
+}
+
+%flexbox {
+	@include flexbox();
+	@include flex-direction(row);
+}
+%all-center {
+	@include justify-content(center);
+	@include align-items(center);
+}
+
+%justify-center {
+	@include justify-content(center);
+}
+
+%justify-between {
+	@include justify-content(space-between);
+}
+
+%justify-around {
+	@include justify-content(space-around);
+}
+
+%justify-start {
+	@include justify-content(flex-start);
+}
+
+%justify-end {
+	@include justify-content(flex-end);
+}
+
+%item-center {
+	@include align-items(center);
+}
+
+%item-start {
+	@include align-items(flex-start);
+}
+
+%item-end {
+	@include align-items(flex-end);
+}
+
+%item-stretch {
+	@include align-items(stretch);
+}
+%item-nowrap {
+	@include flex-wrap(nowrap);
+}
+%item-wrap {
+	@include flex-wrap(wrap);
+}
+%break-text {
+	word-break: break-word;
+	white-space: pre-wrap;
+	line-break: strict;
+	white-space: normal;
+	@include hyphens('auto');
+}
+%page-bg {
+	@include linear-gradient(
+		to bottom,
+		(theme-colors('primary', 'base') 30%, theme-colors('primary', 'dark') 100%)
+	);
+}
+%banner-overlay {
+	@include linear-gradient(
+		to top,
+		(
+			theme-colors('primary', 'base') 27%,
+			theme-colors('primary', 'base', 0.5) 83%,
+			theme-colors('primary', 'base', 0.01) 100%
+		)
+	);
+}
+%feature-overlay {
+	@include linear-gradient(
+		to top,
+		(
+			theme-colors('primary', 'base', 0.6) 60%,
+			theme-colors('primary', 'base', 0.2) 100%
+		)
+	);
+}
+%user-overlay {
+	@include linear-gradient(
+		to top,
+		(
+			theme-colors('primary', 'base', 0.8) 20%,
+			theme-colors('primary', 'base', 0.01) 100%
+		)
+	);
+}
+%benefits-background {
+	@include linear-gradient(
+		to top,
+		(
+			theme-colors('primary', 'base', 0.9) 30%,
+			theme-colors('primary', 'dark', 0.6) 100%
+		)
+	);
+}
+%landing-contact {
+	@include linear-gradient(
+		to top,
+		(
+			theme-colors('primary', 'dark') 27%,
+			theme-colors('primary', 'base', 0.5) 83%,
+			theme-colors('primary', 'base', 0.01) 100%
+		)
+	);
+}
+
+%inner-background {
+	@include linear-gradient(
+		to top,
+		(
+			theme-colors('primary', 'light') 2%,
+			theme-colors('primary', 'base') 73%,
+			theme-colors('primary', 'base') 100%
+		)
+	);
+}
+%vendor-banner {
+	background-image: url(../../../../public/img/new-design/vendor-banner.svg);
+	background-repeat: no-repeat;
+	background-position: center;
+}
+%radius-xs {
+	@include border-radius(0.125rem);
+}
+%radius-sm {
+	@include border-radius(0.25rem);
+}
+%radius-md {
+	@include border-radius(0.375rem);
+}
+%radius-lg {
+	@include border-radius(0.5rem);
+}
+%radius-xl {
+	@include border-radius(0.625rem);
+}
+%radius-xxl {
+	@include border-radius(0.75rem);
+}
+%radius-full {
+	@include border-radius(50px);
+}
+%radius-cercle {
+	@include border-radius(50%);
+}

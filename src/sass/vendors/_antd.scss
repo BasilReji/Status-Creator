@@ -1,0 +1,870 @@
+@import '../helpers/controls';
+/*--- form common ---*/
+.ant-btn,
+.ant-input,
+.ant-picker {
+	min-height: 36px;
+	@extend %radius-sm;
+}
+.ant-input,
+.ant-picker {
+	border: solid 1px theme-colors('primary', 'base', 0.1);
+	@extend %radius-sm;
+	@include transition(all 0.4s ease-in-out);
+	&:hover,
+	&:focus,
+	.ant-input-focused,
+	&.ant-picker-focused {
+		border-color: theme-colors('foreground', 'teal');
+		@include transition(all 0.4s ease-in-out);
+		@include box-shadow(0 0 0 transparent);
+	}
+}
+/* ------Antd Button ------*/
+.ant-btn {
+	@extend %flexbox;
+	@extend %all-center;
+}
+/*--- input input ---*/
+.ant-input {
+	border: solid 1px theme-colors('primary', 'base', 0.1);
+	@include transition(all 0.4s ease-in-out);
+	&:focus,
+	&:hover {
+		outline: 0;
+		border-color: theme-colors('foreground', 'teal');
+		@include box-shadow(0 0 0 transparent);
+		@include transition(all 0.4s ease-in-out);
+	}
+}
+textarea.ant-input {
+	min-height: 100px;
+	max-height: 100px;
+}
+/*--- input password ---*/
+.ant-input-affix-wrapper {
+	border: solid 1px theme-colors('primary', 'base', 0.1);
+	&.ant-input-password {
+		padding: 0;
+		min-height: 36px;
+		position: relative;
+		@extend %radius-sm;
+		@extend %flexbox;
+		@extend %item-center;
+		.ant-input-suffix {
+			margin: 0;
+			padding: 0;
+			right: 1rem;
+			top: 50%;
+			position: absolute;
+			@include transform(translateY(-50%));
+		}
+	}
+	&:focus,
+	&:hover {
+		outline: 0;
+		color: theme-colors('foreground', 'teal');
+		border-color: theme-colors('foreground', 'teal');
+		@include box-shadow(0 0 0 transparent);
+		@include transition(all 0.4s ease-in-out);
+	}
+	&:not(.ant-input-affix-wrapper-disabled):focus,
+	&:not(.ant-input-affix-wrapper-disabled):hover {
+		outline: 0;
+		border-color: theme-colors('foreground', 'teal');
+		color: theme-colors('foreground', 'teal');
+		@include transition(all 0.4s ease-in-out);
+		@include box-shadow(0 0 0 transparent);
+	}
+	input.ant-input {
+		height: 100%;
+		padding: 4px 11px;
+		font-size: 14px;
+		line-height: 1.5715;
+		&:focus,
+		&:hover {
+			border: 0;
+			@include box-shadow(
+				0 0 1000px theme-colors('background', 'white') inset !important
+			);
+		}
+	}
+}
+/* ------Antd Select ------*/
+.ant-select {
+	flex: 1 1 auto;
+	min-width: 200px;
+	position: relative;
+	@extend %flex-column;
+	@include transition(all 0.4s ease-in-out);
+	&:not(.ant-select-customize-input) &.ant-select-focused,
+	&.ant-select-focused:not(.ant-select-disabled),
+	&.ant-select-open {
+		background-color: transparent;
+		.ant-select-selector {
+			outline: 0;
+			border-color: theme-colors('foreground', 'teal') !important;
+			-webkit-box-shadow: 0 0 0 transparent !important;
+			-moz-box-shadow: 0 0 0 transparent !important;
+			box-shadow: 0 0 0 transparent !important;
+			@include transition(all 0.4s ease-in-out);
+		}
+	}
+	&:not(.ant-select-customize-input) {
+		background-color: transparent;
+		.ant-select-selector {
+			border: solid 1px theme-colors('primary', 'base', 0.1);
+			min-height: 36px;
+			@extend %flexbox;
+			@extend %item-center;
+			@extend %radius-sm;
+			@include transition(all 0.4s ease-in-out);
+			@include box-shadow(0 0 0 transparent);
+			&:hover {
+				border-color: theme-colors('foreground', 'teal') !important;
+				@include transition(all 0.4s ease-in-out);
+			}
+			.ant-select-selection-search {
+				flex: 1 1 auto;
+				margin: 0;
+				@extend %flex-column;
+				@extend %justify-center;
+				.ant-select-selection-search-input {
+					min-height: 32px;
+					font-weight: 300;
+				}
+			}
+		}
+	}
+	.ant-select-arrow {
+		cursor: pointer;
+		top: 50%;
+		padding: 0;
+		margin: 0;
+		@extend %flexbox;
+		@extend %all-center;
+		@include transform(translate(0, -50%));
+		.anticon {
+			color: theme-colors('primary', 'light', 0.5);
+			width: 21px;
+			margin-left: 0px;
+		}
+	}
+	&.ant-select-single {
+		margin: 0;
+		.ant-select-selector {
+			padding: 0 10px;
+		}
+	}
+	&.ant-select-multiple {
+		margin: 0;
+		.ant-select-selector {
+			padding: 0 10px;
+			.ant-select-selection-overflow {
+				flex: 1 1 auto;
+				@extend %flexbox;
+				@extend %item-center;
+				@extend %item-wrap;
+				.ant-select-selection-overflow-item {
+					flex: 0 0 auto;
+					height: 24px;
+					margin: 2px 4px 2px 0;
+					position: relative;
+					.ant-select-selection-item {
+						height: 24px;
+						margin: 0;
+						line-height: 22px;
+						padding: 0px 8px;
+						@extend %flexbox;
+						@extend %item-center;
+						.ant-select-selection-item-content {
+							flex: 0 0 auto;
+						}
+						.ant-select-selection-item-remove {
+							flex: 0 0 auto;
+							max-width: 20px;
+							max-height: 20px;
+							@extend %flexbox;
+							@extend %all-center;
+						}
+					}
+					&.ant-select-selection-overflow-item-suffix {
+						margin: 0;
+						.ant-select-selection-search {
+							margin: 0;
+							height: 24px;
+							line-height: 22px;
+							.ant-select-selection-search-input {
+								height: 24px;
+								min-height: 24px;
+								padding: 0 !important;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	&.showing-filter {
+		min-width: auto;
+		min-height: 26px;
+		border: 0;
+		.ant-select-selector {
+			min-height: 26px;
+			max-height: 26px;
+			padding: 0 10px;
+			border: 0 !important;
+			.ant-select-selection-item {
+				line-height: 26px;
+				font-weight: 700;
+			}
+		}
+	}
+	&.ant-select-auto-complete {
+		flex: 1 1 auto;
+		padding: 0;
+		margin: 0;
+		.ant-select-selector {
+			@include transition(all 0.4s ease-in-out);
+			.ant-input {
+				&:focus {
+					box-shadow: none;
+					outline: none;
+				}
+				background-color: transparent;
+				border: none;
+				font-size: 14px;
+				color: theme-colors('primary', 'base', 0.8);
+				@include placeholder {
+					color: theme-colors('primary', 'base', 0.2);
+					@include transition(all 0.6s ease-in-out);
+				}
+			}
+		}
+	}
+	&.search-element {
+		border: 0;
+		.ant-select-selector {
+			height: 100%;
+			border: 0;
+			@extend %flexbox;
+			@extend %item-center;
+		}
+	}
+}
+/* ------Antd popover ------*/
+.ant-popover-content {
+	@extend %flex-column;
+	.ant-popover-inner-content {
+		padding: 30px;
+		.ant-popover-message {
+			@extend %flexbox;
+			@extend %item-center;
+			padding: 0px;
+			position: relative;
+			.ant-popover-message-title {
+				border: solid 1px theme-colors('primary', 'base', 0.1);
+				height: 30px;
+			}
+			.anticon {
+				top: 8px;
+				left: 5px;
+				@extend %flexbox;
+				@extend %all-center;
+			}
+		}
+		.ant-popover-buttons {
+			margin-top: 15px;
+			@extend %flexbox;
+			@extend %all-center;
+		}
+	}
+}
+/* ------Antd Drawer ------*/
+.ant-drawer {
+	@include transition(all 300ms ease-in-out);
+	.ant-drawer-content-wrapper {
+		width: calc(320px + 862 * ((100vw - 320px) / 1280)) !important;
+		@include transition(all 300ms ease-in-out);
+	}
+}
+/* ------Antd picker panels ------*/
+.ant-picker-panels {
+	@extend %flexbox;
+	@extend %item-center;
+	@include media('<phone') {
+		@include flex-direction(column);
+	}
+	@include media('>=phone', '<576px') {
+		@include flex-direction(column);
+	}
+	@include media('>=576px', '<tablet') {
+		@include flex-direction(column);
+	}
+	.ant-picker-panel {
+		border: 0;
+		@include media('<phone') {
+			margin: 8px 0;
+		}
+		@include media('>=phone', '<576px') {
+			margin: 8px 0;
+		}
+		@include media('>=576px', '<tablet') {
+			margin: 8px 0;
+		}
+	}
+}
+/* ------Antd checkbox group ------*/
+.ant-checkbox-group {
+	flex: 0 0 auto;
+	@extend %flexbox;
+	@extend %item-center;
+	@extend %item-wrap;
+	&-item {
+		flex: 0 0 auto;
+		&:not(:last-child) {
+			margin-right: 10px;
+		}
+	}
+}
+/* ------Antd rate ------*/
+.ant-rate {
+	min-height: 16px;
+	max-height: 16px;
+	color: theme-colors('foreground', 'teal');
+	@extend %flexbox;
+	@extend %item-center;
+	li {
+		flex: 0 0 auto;
+		position: relative;
+		min-width: 16px;
+		min-height: 16px;
+		overflow: hidden;
+		max-width: 16px;
+		max-height: 16px;
+		@extend %flexbox;
+		@extend %all-center;
+		.ant-rate-star-first {
+			min-height: 16px;
+			max-height: 16px;
+			top: 0px;
+		}
+		.ant-rate-star-second {
+			flex: 0 0 auto;
+			min-height: 16px;
+			max-height: 16px;
+			@extend %flexbox;
+			@extend %all-center;
+		}
+	}
+}
+/* ------Antd btn group ------*/
+.ant-btn-group {
+	padding: 0px 15px;
+	border: 1px solid theme-colors('primary', 'base', 0.1);
+	@extend %flexbox;
+	@extend %all-center;
+	@include border-radius(50px);
+	.ant-btn {
+		border: 0;
+		height: 30px;
+		text-transform: capitalize;
+		padding: 0;
+		font-size: 14px;
+		@extend %flexbox;
+		@extend %all-center;
+	}
+}
+/* ------Antd Tab ------*/
+.ant-tabs {
+	position: relative;
+	z-index: 0;
+	@include transition(all 0.8s ease-in-out);
+	.ant-tabs-nav {
+		@extend %flex-column;
+		.ant-tabs-nav-wrap {
+			@extend %flex-column;
+			.ant-tabs-nav-list {
+				flex: 1 1 auto;
+				width: 100%;
+				border-bottom: solid 1px theme-colors('primary', 'base', 0.2);
+				@extend %flexbox;
+				@extend %item-center;
+				.ant-tabs-tab {
+					flex: 0 0 auto;
+					.ant-tabs-tab-btn {
+						font-size: 16px;
+						font-weight: 500;
+					}
+					&.ant-tabs-tab-active {
+						flex: 0 0 auto;
+						.ant-tabs-tab-btn {
+							color: theme-colors('foreground', 'blue');
+						}
+					}
+				}
+				.ant-tabs-ink-bar-animated {
+					bottom: -1px;
+					background-color: theme-colors('foreground', 'blue');
+					@include transition(all 0.8s ease-in-out);
+				}
+			}
+		}
+	}
+	&.profile-tabs {
+		flex: 1 1 auto;
+		.ant-tabs-nav-list {
+			border-bottom: 0 !important;
+			.ant-tabs-tab {
+				margin: 0;
+				flex: 1 1 auto;
+				padding: 20px 30px;
+				max-width: 25%;
+				min-width: 25%;
+				background-color: theme-colors('background', 'white');
+				@extend %flex-column;
+				@extend %all-center;
+				&:not(:last-child) {
+					border-right: solid 1px theme-colors('primary', 'base', 0.1);
+				}
+				.tab-block {
+					@extend %flex-column;
+					@extend %all-center;
+					span {
+						flex: 0 0 auto;
+						font-family: $font-head;
+						&:nth-child(1) {
+							width: 30px;
+							height: 30px;
+							margin-bottom: 8px;
+							svg {
+								width: 100%;
+								height: 100%;
+								path {
+									fill: theme-colors('primary', 'base', 0.5);
+								}
+							}
+						}
+						&:nth-child(2) {
+							font-size: 18px;
+							color: theme-colors('primary', 'base', 0.5);
+							font-weight: 700;
+						}
+					}
+				}
+				&.ant-tabs-tab-active {
+					background-color: theme-colors('primary', 'light', 0.05);
+					.tab-block {
+						margin: 0;
+						span {
+							flex: 0 0 auto;
+							&:nth-child(1) {
+								flex: 1 1 auto;
+								svg {
+									border: 0;
+									path {
+										fill: theme-colors('primary', 'base');
+									}
+								}
+							}
+							&:nth-child(2) {
+								color: theme-colors('primary', 'base');
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+/* ------Antd Pagination ------*/
+.ant-pagination {
+	border: solid 1px theme-colors('primary', 'base', 0.1);
+	background-color: theme-colors('background', 'white');
+	@extend %flexbox;
+	@extend %all-center;
+	@include border-radius(4px);
+	.ant-pagination-item,
+	.ant-pagination-next,
+	.ant-pagination-prev {
+		height: auto;
+		flex: 0 0 auto;
+		border: 0;
+		padding: 0px;
+		min-width: 38px;
+		min-height: 38px;
+		max-height: 38px;
+		background-color: transparent;
+		@extend %flexbox;
+		@extend %all-center;
+		@include border-radius(0);
+		a,
+		.ant-pagination-item-link {
+			flex: 1 1 auto;
+			padding: 0;
+			background-color: transparent;
+			border: 0;
+			min-width: 30px;
+			min-height: 30px;
+			max-height: 30px;
+			@extend %flexbox;
+			@extend %all-center;
+			@include border-radius(3px);
+			@include transition(all 0.8s ease-in-out);
+		}
+	}
+
+	.ant-pagination-item-active {
+		flex: 0 0 auto;
+		a {
+			background-color: theme-colors('primary', 'base');
+			border-color: theme-colors('primary', 'base');
+			color: theme-colors('background', 'white') !important;
+			&:hover {
+				color: theme-colors('background', 'white') !important;
+			}
+		}
+	}
+	.ant-pagination-prev,
+	.ant-pagination-next,
+	.ant-pagination-jump-next,
+	.ant-pagination-jump-prev {
+		flex: 0 0 auto;
+		min-width: 30px;
+		max-width: 30px;
+		min-height: 30px;
+		max-height: 30px;
+		border-color: theme-colors('primary', 'base', 0.1);
+		border-style: solid;
+	}
+	.ant-pagination-prev {
+		border-width: 0 1px 0 0;
+	}
+	.ant-pagination-next {
+		border-width: 0 0 0 1px;
+	}
+	.ant-pagination-total-text,
+	.ant-pagination-options {
+		width: auto !important;
+
+		.ant-select {
+			margin: 0px !important;
+		}
+	}
+	.ant-pagination-total-text {
+		margin-right: auto;
+	}
+
+	.ant-select-selection--single {
+		height: 30px;
+		@include border-radius(3px);
+
+		.ant-select-selection-selected-value {
+			line-height: 30px;
+		}
+	}
+}
+/* ------ Antd Model -------*/
+.ant-modal-wrap {
+	height: 100vh;
+	overflow: hidden;
+	@extend %flexbox;
+	@extend %all-center;
+	@include transition(all 0.4s ease-in-out);
+	.ant-modal {
+		top: 0;
+		flex: 0 0 auto;
+		max-width: 80%;
+		margin: 0px !important;
+		padding: 0 !important;
+		width: auto !important;
+		@extend %flex-column;
+		@include media('<phone') {
+			max-width: 80% !important;
+			min-width: 80% !important;
+		}
+		@include media('>=phone', '<=575.99px') {
+			max-width: 80% !important;
+			min-width: 80% !important;
+		}
+
+		@include media('>=576px', '<tablet') {
+			max-width: 90% !important;
+			min-width: 90% !important;
+		}
+
+		@include media('>=tablet', '<=992px') {
+			max-width: 90% !important;
+			min-width: 90% !important;
+		}
+		.ant-modal-content {
+			outline: 0;
+			overflow: hidden;
+			@extend %flex-column;
+			.ant-modal-close {
+				position: absolute;
+				right: 0px;
+				top: 10px;
+				z-index: 99;
+				width: 30px;
+				height: 30px;
+				cursor: pointer;
+				background-color: theme-colors('background', 'white', 0.5);
+				@include transform(translate(-50%, 0));
+				@extend %flexbox;
+				@extend %all-center;
+				.ant-modal-close-x {
+					flex: 0 0 auto;
+					line-height: 20px !important;
+					width: auto !important;
+					height: auto !important;
+				}
+			}
+			.ant-modal-header {
+				flex: 0 1 auto;
+				@extend %flexbox;
+				@extend %item-center;
+				.ant-modal-title {
+					font-size: 1.256rem !important;
+					font-weight: 400;
+					color: theme-colors('primary', 'base', 0.6);
+				}
+			}
+			.ant-modal-body {
+				flex: 1 1 auto;
+			}
+			.ant-modal-footer {
+				flex: 0 1 auto;
+				@extend %flexbox;
+				@extend %item-center;
+				@extend %justify-end;
+			}
+		}
+		&.dashboard_modal {
+			max-width: 948px;
+			min-width: 948px;
+			.ant-modal-header {
+				h3 {
+					svg {
+						font-size: 14px;
+						margin-left: 5px;
+						color: theme-colors('primary', 'base', 0.4);
+						vertical-align: baseline;
+					}
+				}
+			}
+
+			.graph-properties {
+				min-height: 400px;
+				@include media('<phone') {
+					min-height: 80%;
+				}
+				@include media('>=phone', '<tablet') {
+					min-height: 80%;
+				}
+			}
+		}
+	}
+}
+/* ---- Antd Switch -----*/
+.ant-switch {
+	left: 0;
+	top: 0;
+	min-width: 36px;
+	height: 18px;
+	background-color: theme-colors('primary', 'base', 0.2);
+	.ant-switch-handle {
+		height: 14px;
+		max-width: 14px;
+		min-width: 14px;
+	}
+	&.ant-switch-checked {
+		background-color: theme-colors('primary', 'light');
+		.ant-switch-handle {
+			left: calc(100% - 16px);
+		}
+	}
+	&:after {
+		height: 14px;
+		width: 14px;
+	}
+}
+/* ---- Antd rating -----*/
+.ant-rate {
+	min-height: 60px;
+	max-height: 60px;
+	padding: 0 30px;
+	border: solid 1px theme-colors('foreground', 'teal', 0.5);
+	@extend %flexbox;
+	@extend %item-center;
+	@include border-radius(15px);
+}
+/* ------Antd picker ------*/
+.ant-picker {
+	@extend %flexbox;
+	@extend %item-center;
+	.ant-picker-input {
+		max-width: 100px;
+		color: theme-colors('primary', 'base') !important;
+		@extend %flexbox;
+		@extend %all-center;
+		input {
+			font-weight: 400 !important;
+			font-size: 12px !important;
+			@include placeholder {
+				color: theme-colors('primary', 'base') !important;
+			}
+		}
+	}
+	.ant-picker-active-bar {
+		display: none;
+	}
+	.ant-picker-suffix {
+		flex: 0 0 auto;
+		margin: 0px !important;
+		@extend %flexbox;
+		@extend %all-center;
+	}
+	&.category-picker {
+		flex: 0 0 auto;
+		.ant-picker-input {
+			min-width: 180px;
+		}
+	}
+}
+/* ------Antd Slider ------*/
+.ant-slider {
+	margin: 0;
+	.ant-slider-rail {
+		background-color: theme-colors('primary', 'light', 0.1);
+	}
+	.ant-slider-track {
+		background-color: theme-colors('primary', 'base');
+	}
+	.ant-slider-handle {
+		border-color: theme-colors('primary', 'base');
+	}
+}
+/* ------Antd Collapse ------*/
+.ant-collapse {
+	border: 0;
+	@extend %flex-column;
+	.ant-collapse-item {
+		flex: 1 1 auto;
+		border-color: theme-colors('primary', 'base', 0.1) !important;
+		&:last-child {
+			border-bottom: 0px;
+		}
+		.ant-collapse-header {
+			padding: 15px 20px;
+			border: 0px;
+			position: relative;
+			cursor: pointer;
+			@extend %flexbox;
+			@extend %item-center;
+			h3 {
+				flex: 1 1 auto;
+				font-size: 18px;
+				font-weight: 900;
+				margin: 0;
+				font-weight: 400;
+			}
+			p,
+			span {
+				margin: 0;
+				flex: 1 1 auto;
+				font-weight: 400;
+				font-size: 14px;
+			}
+			.anticon {
+				position: absolute;
+				right: 20px;
+				top: 50%;
+				width: 26px;
+				height: 26px;
+				order: 2;
+				color: theme-colors('primary', 'base', 0.9);
+				font-size: 16px;
+				margin-left: auto;
+				@extend %flexbox;
+				@extend %all-center;
+			}
+		}
+		.ant-collapse-content {
+			padding: 0px;
+			border-color: theme-colors('primary', 'base', 0.1);
+			.ant-collapse-content-box {
+				padding: 20px 0px;
+			}
+			p {
+				font-size: 14px;
+				color: theme-colors('background', 'medium');
+				margin: 0;
+			}
+		}
+	}
+}
+/* ---- Antd back top -----*/
+.ant-back-top {
+	z-index: 9999;
+	bottom: 60px;
+	right: 60px;
+	.ant-back-top-content {
+		margin: 0;
+		min-width: 60px;
+		max-width: 60px;
+		min-height: 60px;
+		max-height: 60px;
+		background-color: theme-colors('primary', 'light', 0.6);
+		@extend %radius-cercle;
+		@extend %flexbox;
+		@extend %all-center;
+		.ant-back-top-icon {
+			width: 60px;
+			height: 60px;
+			// background-image: url(../public/img/arrow-top.svg);
+			background-repeat: no-repeat;
+			background-size: 40%;
+			background-position: center;
+			.anticon-vertical-align-top {
+				display: none;
+			}
+		}
+	}
+}
+/* ---- Antd Tag-----*/
+.ant-tag {
+	height: 20px;
+	line-height: 19px;
+	font-size: 11px;
+	@extend %radius-full;
+}
+.table {
+	margin: 0;
+	tbody {
+		margin: 0;
+		p {
+			margin: 0;
+		}
+	}
+}
+/* ------ Antd  Checkbox -------*/
+.ant-checkbox-wrapper {
+	@extend %flexbox;
+	@extend %all-center;
+	.ant-checkbox {
+		top: auto;
+		.ant-checkbox-inner {
+			min-width: 20px;
+			max-width: 20px;
+			min-height: 20px;
+			max-height: 20px;
+			&:after {
+				top: 7px;
+				left: 4px;
+				width: 6px;
+				height: 12px;
+			}
+		}
+	}
+}

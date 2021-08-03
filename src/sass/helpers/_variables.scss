@@ -1,0 +1,42 @@
+$theme-colors-key: 'base' !default;
+$theme-colors: (
+	'primary': (
+		'light': #194a6a,
+		'base': #112c3e,
+		'dark': #091925,
+	),
+	'foreground': (
+		'blue': #469acc,
+		'green': #269193,
+		'teal': #08b9c7,
+		'yellow': #f1991b,
+	),
+	'background': (
+		'white': #fff,
+		'black': #000,
+		'gray': #f5f8fc,
+		'medium': #838383,
+		'dark': #151d25,
+		'error': #f50136,
+	),
+);
+@function theme-colors(
+	$name: 'primary',
+	$variant: $theme-colors-key,
+	$opacity: 1
+) {
+	$color: null;
+	$color-spectrum: map-get($theme-colors, $name);
+	@if $color-spectrum {
+		$color: map-get($color-spectrum, $variant);
+	}
+	$alpha: if(
+		type-of($opacity) == 'number',
+		$opacity,
+		map-get($theme-opacity, $opacity)
+	);
+	@if $alpha {
+		$color: rgba($color, $alpha);
+	}
+	@return $color;
+}
